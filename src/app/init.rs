@@ -19,7 +19,6 @@ use crate::app::pages::{
     self, color_schemes::ColorSchemes, dock::Dock, layouts::Layouts, panel::Panel,
     shortcuts::ShortcutsPage, snapshots::Snapshots,
 };
-use crate::fl;
 
 impl Cosmic {
     pub fn init(core: Core, flags: Flags) -> (App, app::Task<Message>) {

@@ -1,6 +1,6 @@
 use cosmic::widget::Icon;
 
-use crate::{fl, icon};
+use crate::icon;
 
 #[derive(Clone, Copy, Default, Debug, Eq, PartialEq)]
 pub enum Page {

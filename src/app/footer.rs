@@ -12,7 +12,6 @@ use crate::{
 
 use super::Cosmic;
 use crate::app::pages::layouts::preview::LayoutPreview;
-use crate::fl;
 
 impl Cosmic {
     pub fn footer<'a>(app: &'a App) -> Option<Element<'a, Message>> {
@@ -24,8 +23,8 @@ impl Cosmic {
                 .footer()
                 .map(|elem| elem.map(|message| Message::ColorSchemes(Box::new(message)))),
             Page::Layouts => Some(
-                widget::row()
-                    .push(widget::horizontal_space())
+                widget::row(vec![])
+                    .push(widget::space::horizontal())
                     .push(
                         widget::button::standard(fl!("save-current-layout"))
                             .trailing_icon(icon_handle!("arrow-into-box-symbolic", 16))
@@ -63,8 +62,8 @@ impl Cosmic {
                     .into(),
             ),
             Page::Snapshots => Some(
-                widget::row()
-                    .push(widget::horizontal_space())
+                widget::row(vec![])
+                    .push(widget::space::horizontal())
                     .push(
                         widget::button::standard(fl!("create-snapshot"))
                             .trailing_icon(icon_handle!("list-add-symbolic", 16))

@@ -1,3 +1,4 @@
+use crate::icon;
 use crate::{
     app::{
         core::{
@@ -11,18 +12,17 @@ use crate::{
     },
     icon_handle,
 };
-use crate::{fl, icon};
 use cosmic::{
     self, Apply, Element,
+    iced::widget::pick_list,
     iced::{Alignment, Length},
-    iced_widget::pick_list,
     widget::search_input,
 };
 use cosmic::{
     iced::alignment::Vertical,
     widget::{
-        button, column, container, grid, horizontal_space, mouse_area, responsive, row, scrollable,
-        segmented_button, settings, text, toggler, tooltip,
+        button, column, container, grid, mouse_area, responsive, row, scrollable, segmented_button,
+        settings, space, text, toggler, tooltip,
     },
 };
 
@@ -66,7 +66,7 @@ impl ColorSchemes {
             Tab::Available => settings::section().add(self.available_themes()),
         };
 
-        column()
+        column(vec![])
             .push(tabs)
             .push(active_tab)
             .spacing(spacing.space_xxs)
@@ -178,18 +178,18 @@ impl ColorSchemes {
     pub fn footer(&self) -> Option<Element<'_, Message>> {
         let spacing = cosmic::theme::spacing();
 
-        let dark_mode = row()
+        let dark_mode = row(vec![])
             .align_y(Vertical::Center)
             .push(icon!("dark-mode-2-symbolic", 48))
-            .push(horizontal_space().width(10))
+            .push(space::horizontal().width(10))
             .push(toggler(self.theme_mode.is_dark).on_toggle(Message::ToggleDarkMode));
 
         match self.model.active_data::<Tab>().unwrap() {
             Tab::Installed => Some(
-                row()
+                row(vec![])
                     .align_y(Vertical::Center)
                     .push(dark_mode)
-                    .push(horizontal_space())
+                    .push(space::horizontal())
                     .push(
                         button::standard(fl!("save-current-color-scheme"))
                             .trailing_icon(icon_handle!("arrow-into-box-symbolic", 16))
@@ -209,10 +209,10 @@ impl ColorSchemes {
                     .into(),
             ),
             Tab::Available => Some(
-                row()
+                row(vec![])
                     .align_y(Vertical::Center)
                     .push(dark_mode)
-                    .push(horizontal_space())
+                    .push(space::horizontal())
                     .push(match self.status {
                         Status::Idle => button::standard(fl!("refresh"))
                             .on_press(Message::FetchAvailableColorSchemes),
@@ -249,16 +249,16 @@ impl ColorSchemes {
         let theme = &color_scheme.theme;
 
         mouse_area(
-            column()
+            column(vec![])
                 .push(
-                    row()
-                        .push(horizontal_space())
+                    row(vec![])
+                        .push(space::horizontal())
                         .push(text(&color_scheme.name))
-                        .push(horizontal_space())
+                        .push(space::horizontal())
                         .padding(spacing.space_xxs),
                 )
                 .push(
-                    row()
+                    row(vec![])
                         .push(
                             container(text(fl!("navigation")))
                                 .padding(spacing.space_xxs)
@@ -266,7 +266,7 @@ impl ColorSchemes {
                                 .height(Length::Fill)
                                 .class(crate::app::core::style::card(theme)),
                         )
-                        .push(horizontal_space())
+                        .push(space::horizontal())
                         .push(tooltip::tooltip(
                             icon_handle!("symbolic-link-symbolic", 14)
                                 .apply(button::icon)
@@ -309,9 +309,9 @@ impl ColorSchemes {
         let theme = &color_scheme.theme;
 
         mouse_area(
-            column()
+            column(vec![])
                 .push(
-                    column()
+                    column(vec![])
                         .push(text(&color_scheme.name))
                         .push_maybe(
                             color_scheme
@@ -324,7 +324,7 @@ impl ColorSchemes {
                         .padding([spacing.space_xxs, spacing.space_none]),
                 )
                 .push(
-                    row()
+                    row(vec![])
                         .push(
                             container(text(fl!("navigation")))
                                 .padding(spacing.space_xxs)
@@ -332,7 +332,7 @@ impl ColorSchemes {
                                 .height(Length::Fill)
                                 .class(crate::app::core::style::card(theme)),
                         )
-                        .push(horizontal_space())
+                        .push(space::horizontal())
                         .push(tooltip(
                             icon_handle!("symbolic-link-symbolic", 14)
                                 .apply(button::icon)

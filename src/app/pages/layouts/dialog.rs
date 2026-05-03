@@ -4,7 +4,7 @@ use crate::app::dialog::DialogPage;
 use crate::app::message::Message;
 
 use crate::app::pages::layouts::preview::{LayoutPreview, PanelProperties};
-use crate::{fl, icon};
+use crate::icon;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct CreateLayoutDialog {
@@ -165,6 +165,7 @@ impl CreateLayoutDialog {
             .icon(icon!("resize-mode-symbolic", 18))
             .control(widget::spin_button(
                 panel_props.size.to_string(),
+                panel_props.size.to_string(),
                 panel_props.size as f32,
                 1.0,
                 0.0,
@@ -202,6 +203,7 @@ impl CreateLayoutDialog {
         widget::settings::item::builder(fl!("dock-icons"))
             .icon(icon!("resize-mode-symbolic", 18))
             .control(widget::spin_button(
+                preview.dock_icons.to_string(),
                 preview.dock_icons.to_string(),
                 preview.dock_icons,
                 1,

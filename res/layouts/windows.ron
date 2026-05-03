@@ -33,6 +33,7 @@
                     size_center: None,
                     expand_to_edges: true,
                     padding: 0,
+                    padding_overlap: 0.5,
                     spacing: 4,
                     border_radius: 0,
                     exclusive_zone: true,

@@ -1,6 +1,6 @@
 use std::{fmt::Display, path::PathBuf};
 
-use crate::{app::App, fl};
+use crate::app::App;
 use chrono::{NaiveDateTime, Utc};
 use cosmic::Application;
 use cosmic_ext_config_templates::{Schema, panel::PanelSchema};

@@ -10,8 +10,8 @@ use cosmic::{
 use cosmic_ext_config_templates::load_template;
 use preview::{LayoutPreview, Position};
 
+use crate::Error;
 use crate::app::{App, core::grid::GridMetrics};
-use crate::{Error, fl};
 
 pub mod config;
 pub mod dialog;
@@ -99,7 +99,7 @@ impl Layouts {
                     col = 0;
                 }
                 grid = grid.push(
-                    widget::column()
+                    widget::column(vec![])
                         .push(layout.preview(&spacing, item_width, 130, &self.selected_layout))
                         .push(widget::text(&layout.name))
                         .spacing(spacing.space_xs)
@@ -116,7 +116,7 @@ impl Layouts {
             .into()
         });
 
-        widget::column()
+        widget::column(vec![])
             .push(widget::settings::section().title(fl!("layouts")).add(grid))
             .into()
     }

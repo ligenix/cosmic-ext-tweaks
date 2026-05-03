@@ -7,7 +7,6 @@ use cosmic::{
 use crate::app::App;
 use crate::app::message::Message;
 use crate::app::page::Page;
-use crate::fl;
 
 use super::Cosmic;
 

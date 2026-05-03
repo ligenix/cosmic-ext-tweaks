@@ -5,7 +5,6 @@ use crate::app::message::Message;
 use crate::app::pages::layouts::dialog::{CreateLayoutDialog, PanelType};
 
 use super::Cosmic;
-use crate::fl;
 
 #[derive(Clone, Debug)]
 pub enum DialogPage {
@@ -30,7 +29,7 @@ impl Cosmic {
                     widget::button::standard(fl!("cancel")).on_press(Message::DialogCancel),
                 )
                 .control(
-                    widget::column()
+                    widget::column(vec![])
                         .push(widget::text::body(fl!("color-scheme-name")))
                         .push(
                             widget::text_input("", name.as_str())
@@ -98,10 +97,10 @@ impl Cosmic {
                         widget::button::standard(fl!("cancel")).on_press(Message::DialogCancel),
                     )
                     .control(
-                        widget::column()
+                        widget::column(vec![])
                             .push(preview_view)
                             .push(
-                                widget::column()
+                                widget::column(vec![])
                                     .push(name_input)
                                     .push_maybe(error.as_ref().map(|error| {
                                         widget::text::caption(error.to_string())
@@ -109,7 +108,7 @@ impl Cosmic {
                                     }))
                                     .push(
                                         widget::scrollable(
-                                            widget::column()
+                                            widget::column(vec![])
                                                 .push(dialog.section(
                                                     PanelType::Panel,
                                                     &app.layouts.panel_model,

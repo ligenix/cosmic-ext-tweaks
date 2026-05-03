@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use cosmic::{
     cosmic_theme::{Component, Theme},
+    iced::core::Shadow,
     iced::{Background, Border, Color},
-    iced_core::Shadow,
     theme::{Button, TRANSPARENT_COMPONENT},
     widget::{self, container},
 };
@@ -21,6 +21,7 @@ pub fn background<'a>(theme: &'a Theme) -> cosmic::theme::Container<'a> {
             ..Default::default()
         },
         shadow: Shadow::default(),
+        snap: false,
     })
 }
 
@@ -38,6 +39,7 @@ pub fn card<'a>(theme: &'a Theme) -> cosmic::theme::Container<'a> {
             ..Default::default()
         },
         shadow: Shadow::default(),
+        snap: false,
     })
 }
 
@@ -52,6 +54,7 @@ pub fn panel_style(theme: &cosmic::Theme) -> widget::container::Style {
             ..Default::default()
         },
         shadow: Shadow::default(),
+        snap: false,
     }
 }
 
@@ -376,7 +379,7 @@ pub fn appearance(
             appearance.text_color = None;
         }
 
-        Button::ListItem => {
+        Button::ListItem([..]) => {
             corner_radii = &[0.0; 4];
             let (background, text, icon) = color(&cosmic.background.component);
 

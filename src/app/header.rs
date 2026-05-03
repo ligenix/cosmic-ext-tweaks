@@ -8,7 +8,7 @@ use crate::app::message::Message;
 use crate::app::page::Page;
 
 use super::Cosmic;
-use crate::{fl, icon_handle};
+use crate::icon_handle;
 
 impl Cosmic {
     pub fn header_start<'a>(app: &'a App) -> Vec<Element<'a, Message>> {

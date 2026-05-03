@@ -31,8 +31,7 @@ impl Cosmic {
             Page::Shortcuts => app.shortcuts.view().map(Message::Shortcuts),
         };
 
-        widget::column()
-            .push(view)
+        widget::column(vec![view])
             .padding(spacing.space_xs)
             .width(Length::Fill)
             .height(Length::Fill)

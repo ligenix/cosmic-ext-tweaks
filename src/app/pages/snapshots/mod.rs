@@ -3,9 +3,9 @@ use cosmic::{Application, Element, Task, iced::Length, widget};
 use cosmic_ext_config_templates::load_template;
 use dirs::data_local_dir;
 
+use crate::app::App;
 use crate::app::pages::snapshots::config::SnapshotKind;
 use crate::icon_handle;
-use crate::{app::App, fl};
 
 pub mod config;
 
@@ -54,7 +54,7 @@ impl Snapshots {
                     widget::text(snapshot.created())
                         .width(Length::FillPortion(1))
                         .into(),
-                    widget::row()
+                    widget::row(vec![])
                         .push(widget::tooltip(
                             widget::button::icon(icon_handle!(
                                 "arrow-circular-bottom-right-symbolic",
@@ -85,7 +85,7 @@ impl Snapshots {
             .collect::<Vec<Element<Message>>>();
 
         let heading_item = |name, width| {
-            widget::row()
+            widget::row(vec![])
                 .push(widget::text::heading(name))
                 .align_y(cosmic::iced::Alignment::Center)
                 .spacing(spacing.space_xxxs)
@@ -96,7 +96,7 @@ impl Snapshots {
             None
         } else {
             Some(
-                widget::row()
+                widget::row(vec![])
                     .push(heading_item(fl!("name"), Length::FillPortion(2)))
                     .push(heading_item(fl!("type"), Length::FillPortion(1)))
                     .push(heading_item(fl!("created"), Length::FillPortion(1)))
@@ -112,11 +112,11 @@ impl Snapshots {
         };
 
         widget::scrollable(
-            widget::column()
+            widget::column(vec![])
                 .push(
-                    widget::row()
+                    widget::row(vec![])
                         .push(widget::text::title3(fl!("snapshots")))
-                        .push(widget::horizontal_space())
+                        .push(widget::space::horizontal())
                         .spacing(spacing.space_xxs),
                 )
                 .push(widget::text::body(fl!("restore-info")))

@@ -5,7 +5,6 @@ use cosmic::{
 };
 use cosmic_panel_config::{AutoHide, CosmicPanelConfig};
 
-use crate::fl;
 use crate::icon;
 
 #[derive(Debug)]
@@ -77,7 +76,7 @@ impl Dock {
                         .description(fl!("padding-description"))
                         .icon(icon!("resize-mode-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(widget::slider(0..=28, self.padding, Message::SetPadding))
                                 .push(widget::text::text(format!("{} px", self.padding)))
                                 .spacing(spacing.space_xxs),
@@ -88,7 +87,7 @@ impl Dock {
                         .description(fl!("margin-description"))
                         .icon(icon!("object-layout-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(widget::slider(0..=20, self.margin, Message::SetMargin))
                                 .push(widget::text::text(format!("{} px", self.margin)))
                                 .spacing(spacing.space_xxs),
@@ -99,7 +98,7 @@ impl Dock {
                         .description(fl!("spacing-description"))
                         .icon(icon!("size-horizontally-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(widget::slider(0..=28, self.spacing, Message::SetSpacing))
                                 .push(widget::text::text(format!("{} px", self.spacing)))
                                 .spacing(spacing.space_xxs),
@@ -110,7 +109,7 @@ impl Dock {
                         .description(fl!("border-radius-description"))
                         .icon(icon!("size-horizontally-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(widget::slider(
                                     0..=160,
                                     self.border_radius,
@@ -128,7 +127,7 @@ impl Dock {
                         .description(fl!("wait-time-description"))
                         .icon(icon!("size-vertically-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(
                                     widget::slider(
                                         0..=4000,
@@ -147,7 +146,7 @@ impl Dock {
                         .description(fl!("transition-time-description"))
                         .icon(icon!("size-vertically-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(
                                     widget::slider(
                                         0..=4000,
@@ -169,7 +168,7 @@ impl Dock {
                         .description(fl!("handle-size-description"))
                         .icon(icon!("size-vertically-symbolic", 18))
                         .control(
-                            widget::row()
+                            widget::row(vec![])
                                 .push(
                                     widget::slider(
                                         4..=32,

@@ -1,5 +1,3 @@
-use crate::fl;
-
 #[derive(Debug, Clone, Eq, PartialEq)]
 pub enum ContextPage {
     Settings,
