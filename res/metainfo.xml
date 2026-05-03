@@ -142,6 +142,18 @@
     <id>com.system76.CosmicApplication</id>
   </provides>
   <releases>
+    <release version="0.2.2" date="2026-05-03">
+        <description>
+            <p>Internationalization improvements:</p>
+            <ul>
+                <li>Added Simplified Chinese translation.</li>
+                <li>Added Ukrainian translation.</li>
+                <li>Updated Czech translation and removed duplicated keys.</li>
+                <li>Updated Swedish translation.</li>
+                <li>Improved the .desktop file and its translations.</li>
+            </ul>
+        </description>
+    </release>
     <release version="0.2.1" date="2025-10-26">
       <description>
         <p>Improved theme discovery! 🎨</p>
