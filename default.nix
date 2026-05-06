@@ -24,7 +24,7 @@ pkgs.callPackage (
   }:
   let
     pname = "cosmic-ext-tweaks";
-    version = "0.2.2";
+    version = "0.2.3";
 
     buildInputs = [
       openssl
